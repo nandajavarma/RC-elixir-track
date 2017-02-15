@@ -80,6 +80,17 @@ defmodule FirstScripts do
   def age_on(planet, seconds) do
     seconds / (@year_to_secs * @planet_years[planet])
   end
+
+  @doc """
+  Merge sort in elixir
+  """
+  @spec sort([]) :: []
+  def sort([]), do: []
+
+  def sort([head| tail]) do
+    {smaller, bigger} = Enum.partition(tail, &(&1 < head))
+    sort(smaller) ++ [head] ++ sort(bigger)
+  end
 end
 
 

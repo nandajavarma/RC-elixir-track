@@ -112,4 +112,9 @@ defmodule FirstScriptsTest do
     assert_in_delta 260.16, FirstScripts.age_on(:earth, input), 0.005
     assert_in_delta 1.58, FirstScripts.age_on(:neptune, input), 0.005
   end
+
+  @unsorted [13,4,1,9,2,3,10]
+  test "test the array is sorted properly" do
+    assert FirstScripts.sort(@unsorted) == [1,2,3,4,9,10,13]
+  end
 end
