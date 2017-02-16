@@ -91,6 +91,20 @@ defmodule FirstScripts do
     {smaller, bigger} = Enum.partition(tail, &(&1 < head))
     sort(smaller) ++ [head] ++ sort(bigger)
   end
+
+  @doc """
+  Tower of hanoi implementation in Elixir
+  """
+  @spec hanoi(integer, String.t, String.t, String.t) :: nil
+  def hanoi(1, f, _, t), do: move(f, t)
+
+  def move(f, t), do: IO.puts("Moving #{f} to #{t}")
+
+  def hanoi(n, f, h, t) do
+    hanoi((n-1), f, t, h)
+    hanoi(1, f, h, t)
+    hanoi((n-1), h, f, t)
+  end
 end
 
 
@@ -98,3 +112,4 @@ FirstScripts.fib(10)
 FirstScripts.hello()
 FirstScripts.histogram('AAAA')
 FirstScripts.age_on(:earth, 1_000_000_000)
+FirstScripts.hanoi(10, 'a', 'b', 'c')
