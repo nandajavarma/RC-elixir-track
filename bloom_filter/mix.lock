@@ -1,0 +1,2 @@
+%{"bitmap": {:hex, :bitmap, "1.0.0", "117f7eefbc070702e974cf06143cb4394e10a383752f7d640d3f614cfaee6064", [:mix], []},
+  "murmur": {:hex, :murmur, "1.0.0", "373d7e9bb1d6be7dd39e4fa7d8f90d5a1ba4437c9d149f468af8d89c116b97ee", [:mix], []}}
