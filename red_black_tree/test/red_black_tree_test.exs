@@ -6,8 +6,8 @@ defmodule RedBlackTreeTest do
     node = RedBlackTree.new(5)
     assert node.value == 5
     assert node.color == "red"
-    assert node.lchild == :nilnode
-    assert node.rchild == :nilnode
+    assert node.lchild == nil
+    assert node.rchild == nil
     assert node.parent == nil
   end
 
@@ -15,8 +15,8 @@ defmodule RedBlackTreeTest do
     tree = RedBlackTree.insert(5)
     assert tree.value == 5
     assert tree.color == "black"
-    assert tree.lchild == :nilnode
-    assert tree.rchild == :nilnode
+    assert tree.lchild == nil
+    assert tree.rchild == nil
     assert tree.parent == nil
   end
 
