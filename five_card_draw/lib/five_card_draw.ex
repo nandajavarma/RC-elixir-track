@@ -12,10 +12,11 @@ defmodule FiveCardDraw do
     for r <- ranks(), do: {shape, r}
   end
 
+  def shuffle(deck), do: Enum.shuffle(deck)
   def build_deck() do
     shapes() |>
       Enum.map(fn x -> rank_match(x) end) |>
         List.flatten |>
-          Enum.shuffle
+          shuffle()
   end
 end

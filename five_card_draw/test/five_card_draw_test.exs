@@ -13,6 +13,5 @@ defmodule FiveCardDrawTest do
     assert length(hearts) == 13
     assert length(clubs) == 13
     assert length(spades) == 13
-
   end
 end
