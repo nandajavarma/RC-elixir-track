@@ -8,11 +8,7 @@ defmodule Temperex.WorkerTest do
   end
 
   test "get the temperature of New York" do
-    assert {:ok, _} = Temperex.Worker.temperature_of("New York")
+    assert Temperex.Worker.temperature_of("New York")
   end
 
-  test "get the temperature of New York by spawning a new process" do
-    pid = spawn(Temperex.Worker, :loop, [])
-    send(pid, {self(), "kerala"})
-  end
 end

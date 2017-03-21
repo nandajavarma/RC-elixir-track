@@ -3,9 +3,11 @@ defmodule Temperex.Cordinator do
     receive do
       {:ok, result} ->
         new_results = [result | results]
-        if Enum.count(new_results) == count, do: send self(), :exit
+        if Enum.count(new_results) == count, do: send(self(), :exit)
         loop(new_results, count)
-      :exit -> results |> Enum.sort |> Enum.join(", ")
+      :exit -> r = results |> Enum.sort |> Enum.join(", ")
+      IO.inspect r
+      r
       _ -> loop(results, count)
     end
   end

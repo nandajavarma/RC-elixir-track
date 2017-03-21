@@ -11,8 +11,7 @@ defmodule Temperex.Worker do
 
   def get_temperature(json) do
     try do
-      temp = (json["main"]["temp"] - 273.15) |> Float.round(1)
-      {:ok, temp}
+      (json["main"]["temp"] - 273.15) |> Float.round(1)
     rescue
       _ -> :error
     end
@@ -30,8 +29,9 @@ defmodule Temperex.Worker do
   def loop() do
     receive do
       {sender_pid, location} ->
-        send(sender_pid, {:ok, temperature_of(location)})
-        _ -> "No idea how to process this message"
+        temp = temperature_of(location)
+        send(sender_pid, {:ok, "#{location} : #{temp} C"})
+      _ -> "No idea how to process this message"
     end
     loop()
   end
